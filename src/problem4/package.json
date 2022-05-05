@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "start": "ts-node ./retrieve-holders.ts"
+  },
+  "dependencies": {
+    "ethers": "latest"
+  },
+  "devDependencies": {
+    "ts-node": "latest"
+  },
+  "compilerOptions": {
+    "lib": ["DOM"]
+  }
+}
