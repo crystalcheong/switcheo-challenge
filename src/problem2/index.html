@@ -1,29 +1,135 @@
 <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fancy Form</title>
 
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fancy Form</title>
+    <!-- You may add more stuff here -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <link href="./styles/reset.css" rel="stylesheet" />
 
-  <!-- You may add more stuff here -->
-  <link href="style.css" rel="stylesheet" />
-</head>
+    <style>
+      /* Chrome, Safari, Edge, Opera */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
 
-<body>
+      /* Firefox */
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-[#f8f9ff] h-screen flex flex-col justify-center content-center"
+  >
+    <section class="w-5/6 sm:w-3/6 max-w-screen-md mx-auto relative">
+      <div
+        class="bg-indigo-700 h-12 w-12 relative mx-auto bottom-[-5%] flex justify-center items-center rounded-full z-10"
+      >
+        <svg
+          width="24px"
+          height="24px"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4.99268 11.0158C4.44039 11.0158 3.99268 10.5681 3.99268 10.0158C3.99268 9.65844 4.18016 9.34484 4.46214 9.16801L7.14976 6.48039C7.54029 6.08987 8.17345 6.08987 8.56398 6.48039C8.9545 6.87092 8.9545 7.50408 8.56398 7.89461L7.44275 9.01583L14.9927 9.01583C15.545 9.01583 15.9927 9.46355 15.9927 10.0158C15.9927 10.5681 15.545 11.0158 14.9927 11.0158L5.04213 11.0158C5.033 11.016 5.02388 11.016 5.01476 11.0158H4.99268Z"
+            fill="white"
+          />
+          <path
+            d="M19.0076 12.984C19.5599 12.984 20.0076 13.4318 20.0076 13.984C20.0076 14.3414 19.8201 14.655 19.5381 14.8319L16.8505 17.5195C16.46 17.91 15.8268 17.91 15.4363 17.5195C15.0457 17.129 15.0457 16.4958 15.4363 16.1053L16.5575 14.984H9.00757C8.45528 14.984 8.00757 14.5363 8.00757 13.984C8.00757 13.4318 8.45528 12.984 9.00757 12.984L18.9581 12.984C18.9672 12.9839 18.9764 12.9839 18.9855 12.984H19.0076Z"
+            fill="white"
+          />
+        </svg>
+      </div>
+      <form
+        action="#"
+        method="POST"
+        id="send-form"
+        class="rounded-2xl shadow-lg bg-neutral-100 flex flex-col justify-center gap-3 p-8 border border-gray-300"
+      >
+        <div class="flex flex-col justify-start gap-1">
+          <h2 class="prose prose-2xl font-semibold text-center capitalize">
+            Send Tokens
+          </h2>
+          <p class="text-center text-slate-500">
+            Enter amount and recipient address
+          </p>
+        </div>
 
-  <!-- You may reorganise the whole HTML, as long as your form achieves the same effect. -->
-  <form onsubmit="return !1">
-    <label for="input-address">ETH Address</label>
-    <input id="input-address" />
+        <fieldset
+          class="flex flex-row justify-between items-center gap-4 rounded-lg p-1 ring-1 ring-gray-200 focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500 border-2 border-gray-300"
+        >
+          <span class="h-full px-4 py-2 bg-indigo-700 text-white rounded-l-md">
+            ETH
+          </span>
+          <input
+            required
+            id="input-amount"
+            type="number"
+            placeholder="Enter amount"
+            class="block w-full px-4 py-2 placeholder-slate-400 text-gray-600 rounded-md border-none focus:ring-0"
+          />
+        </fieldset>
 
-    <label for="input-amount">Amount to send</label>
-    <input id="input-amount" />
+        <input
+          required
+          id="input-address"
+          type="text"
+          placeholder="Address"
+          class="block w-full px-4 py-3 placeholder-slate-400 text-gray-700 border-2 border-gray-300 rounded-md ring-1 ring-gray-200 focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500"
+        />
 
-    <label for="input-otp">OTP Authentication</label>
-    <input type="number" id="input-otp" />
+        <fieldset
+          class="flex flex-row justify-between items-center gap-4 rounded-lg p-1 ring-1 ring-gray-200 focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500 border-2 border-gray-300"
+        >
+          <input
+            required
+            id="input-otp"
+            type="number"
+            placeholder="OTP Authentication"
+            class="block w-full px-4 py-2 placeholder-slate-400 text-gray-600 rounded-md border-none focus:ring-0"
+          />
+          <button class="h-full px-4 py-2 bg-indigo-700 text-white rounded-md">
+            Verify
+          </button>
+        </fieldset>
 
-    <button>SEND TOKENS</button>
-  </form>
-  <script src="script.js"></script>
-</body>
+        <div
+          class="flex flex-col justify-start items-center gap-2 focus:ring-1 mt-8"
+        >
+          <button
+            class="w-full px-4 py-2 bg-indigo-700 text-white rounded-md capitalize font-semibold"
+            type="submit"
+            form="send-form"
+            value="send-token"
+          >
+            Send Tokens
+          </button>
+          <p class="text-center text-slate-400 cursor-pointer">Cancel</p>
+        </div>
+      </form>
+    </section>
 
+    <!-- You may reorganise the whole HTML, as long as your form achieves the same effect. -->
+    <!--
+    <form onsubmit="return !1">
+      <label for="input-address">ETH Address</label>
+      <input id="input-address" />
+
+      <label for="input-amount">Amount to send</label>
+      <input id="input-amount" />
+
+      <label for="input-otp">OTP Authentication</label>
+      <input type="number" id="input-otp" />
+
+      <button>SEND TOKENS</button>
+    </form>
+    -->
+
+    <script src="script.js"></script>
+  </body>
 </html>
